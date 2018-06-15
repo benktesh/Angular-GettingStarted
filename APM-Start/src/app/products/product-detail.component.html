@@ -2,4 +2,42 @@
   <div class='panel-heading'>
     {{pageTitle + ': ' + product.productName}}
   </div>
+  <div class='panel-body'>
+    <div class='row'>
+      <div class="column">
+        <div>
+          Name:
+          <a [routerLink]="['/products', product.productId]">{{product.productName}}</a>
+        </div>
+        <div>
+          Product Code: {{product.productCode | lowercase | convertToSpaces : '-'}}
+        </div>
+        <div>
+          Available: {{product.releaseDate}}
+        </div>
+        <div>
+          Price: {{product.price | currency: 'USD':true:'1.2-2' }}
+        </div>
+        <div>
+          Rating:
+          <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
+        </div>
+      </div>
+
+      <div class="column">
+        <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+<div class='panel-footer'>
+  <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+    <i class='glyphicon glyphicon-cheveron-left'></i>Back
+  </a>
+</div>
 </div>
