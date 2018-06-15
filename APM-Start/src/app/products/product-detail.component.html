@@ -4,7 +4,7 @@
   </div>
   <div class='panel-body'>
     <div class='row'>
-      <div class="column">
+      <div class="col-md-8">
         <div>
           Name:
           <a [routerLink]="['/products', product.productId]">{{product.productName}}</a>
@@ -24,17 +24,13 @@
         </div>
       </div>
 
-      <div class="column">
-        <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
+      <div class="col-md-4">
+        <img [src]='product.imageUrl' [title]='product.productName' [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
       </div>
 
     </div>
 
   </div>
-
-
-
-</div>
 <div class='panel-footer'>
   <a class='btn btn-default' (click)='onBack()' style='width:80px'>
     <i class='glyphicon glyphicon-cheveron-left'></i>Back
