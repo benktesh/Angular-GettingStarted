@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
+import { FormPoster } from './services/form-poster.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,7 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     FormsModule,
+    HttpModule,
     BrowserModule,
     RouterModule.forRoot([
      
@@ -22,7 +25,7 @@ import {RouterModule} from '@angular/router';
 
     ])
   ],
-  providers: [],
+  providers: [FormPoster],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

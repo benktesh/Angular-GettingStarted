@@ -1,25 +1,26 @@
-<div class="container">
+<h3 *ngIf="languages.length == 0">Loading...</h3>
+<div class="container" *ngIf="languages.length > 0">
   <h3>Employee Form</h3>
-  <form #form="ngForm">
+  <form #form="ngForm" (submit) ="submitForm(form)">
       <div class="form-group" [class.has-error]= "firstName.invalid  && firstName.touched">
           <label class="control-label">First Name </label>
-          <input #firstName = "ngModel" pattern= "...+" type="text" required class = "form-control" required placeholder="First Name" name="firstName" [(ngModel)] ="model.firstName">
+          <input #firstName="ngModel" required type="text" class = "form-control" placeholder="First Name" name="firstName" [(ngModel)] ="model.firstName">
           <div *ngIf="firstName.invalid  && firstName.touched" class="alert alert-danger">
               First Name is required
           </div>
       </div>
 
-      <h3>Classes</h3>
-      <h4>{{firstName.className }}</h4>
-
       <div class="form-group">
-          <label>Last Name </label>
-          <input type="text" required placeholder="Last Name" name="lastName" [(ngModel)]="model.lastName">
-      </div>
+          <label class="control-label">Last Name </label>
+          <input type="text" #lastName ="ngModel" required class = "form-control" placeholder="Last Name" name="lastName" [(ngModel)]="model.lastName">
+          <div *ngIf="lastName.invalid  && lastName.touched" class="alert alert-danger">
+            Last Name is required
+            </div>
+        </div>
 
       <div class="checkbox">
           <label>
-              <input type="checkbox" name="isFullTime" [(ngModel)]="model.isFullTime">Full Time Employee
+              <input #isFullTime="ngModel" type="checkbox" name="isFullTime" [(ngModel)]="model.isFullTime">Full Time Employee
           </label>
       </div>
       <label>Payment Type</label>
@@ -55,8 +56,9 @@
           <label>Date Hired</label>
           <input type="date" class="form-control">
       </div> 
-      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">OK</button>
-      <h3>{{form.valid}}</h3>
+      <button class="btn btn-primary" type="submit"  > OK</button>
+      
+      <!-- [disabled]="form.invalid" -->
   </form>
 <br />
 
