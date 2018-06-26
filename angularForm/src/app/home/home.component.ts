@@ -8,20 +8,26 @@ import { Employee } from '../models/employee.model';
 })
 export class HomeComponent implements OnInit {
   languages = ["English", "Spanish", "Other"];
-  model = new Employee("Benktesh", "Sharma", true, 'w2', "English");
+  model = new Employee("", "default"); //"Benktesh", "Sharma", true, 'w2', "English");
+  hasPrimaryLanguageError = false;
+  
   constructor() { 
     
   }
 
-  firstNameToUpperCase(value:string) {
-    if(value.length >0 )
-    {
-      this.model.firstName = value.charAt(0).toUpperCase() + value.slice(1);
+  validatePrimaryLanguage(value) {
+    console.log(event);
+    console.log('Language: ' + this.model.primaryLanguage);
+    if(value === 'default') {
+      this.hasPrimaryLanguageError = true;
     }
     else {
-      this.model.firstName = value;
+      this.hasPrimaryLanguageError = false;
     }
+    
   }
+
+
   ngOnInit() {
   }
 
