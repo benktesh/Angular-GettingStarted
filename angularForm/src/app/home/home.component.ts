@@ -10,9 +10,10 @@ import { NgForm } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   languages = [];
-  model = new Employee("", "", false, "w2", "default"); //"Benktesh", "Sharma", true, 'w2', "English");
+  model = new Employee("", "", false, "1099", "default", null); //"Benktesh", "Sharma", true, 'w2', "English");
   hasPrimaryLanguageError = false;
-  
+  hireDate:Date;
+  onOffSwitch='Off';
   constructor(private formPoster: FormPoster) { 
 
     this.formPoster.getLanguages()

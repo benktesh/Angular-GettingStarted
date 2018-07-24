@@ -7,6 +7,10 @@ import { HomeComponent } from './home/home.component';
 import {RouterModule} from '@angular/router';
 import { FormPoster } from './services/form-poster.service';
 import { HttpModule } from '@angular/http';
+import { BsDatepickerModule } from 'ngx-bootstrap';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { RatingModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +18,9 @@ import { HttpModule } from '@angular/http';
     HomeComponent
   ],
   imports: [
+    BsDatepickerModule.forRoot(),
+    ButtonsModule.forRoot(),
+    RatingModule.forRoot(),
     FormsModule,
     HttpModule,
     BrowserModule,
